@@ -1,6 +1,3 @@
- env.JAVA_HOME="${tool 'graalvm'}"
- env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
-
  pipeline {
      agent any
      triggers {
