@@ -8,7 +8,7 @@
      }
      options {
          timestamps()
-         ansiColor("xterm")
+         //ansiColor("xterm")
          buildDiscarder(logRotator(numToKeepStr: '50'))
      }
      stages {
