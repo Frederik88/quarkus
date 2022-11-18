@@ -12,7 +12,6 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
 
-        //return "Hello from Quarkus Test";
-        return "Hello from Quarkus World";
+        return "Hello from RESTEasy Reactive";
     }
 }

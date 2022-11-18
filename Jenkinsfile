@@ -24,17 +24,12 @@
                  sh 'mvn -V clean install -DskipTests -DskipITs -DskipDocs'
              }
          }
-         stage('Test JVM') {
+         stage('Unit Test') {
              options {
                  timeout(time: 4, unit: 'HOURS')
              }
              steps {
-                 sh "mvn -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools'"
-             }
-             post {
-                 always {
-                     junit '**/target/*-reports/TEST*.xml'
-                 }
+                 sh "sh 'mvn clean verify -DskipITs=true';junit '**/target/surefire-reports/TEST-*.xml'archive 'target/*.jar'"
              }
          }
          stage('Test Native') {
