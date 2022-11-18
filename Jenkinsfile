@@ -19,7 +19,7 @@
          }
          stage('Build') {
              steps {
-                 sh 'sudo ./mvnw -V clean install -DskipTests -DskipITs -DskipDocs'
+                 sh './mvnw -V clean install -DskipTests -DskipITs -DskipDocs'
              }
          }
          stage('Test JVM') {
@@ -27,7 +27,7 @@
                  timeout(time: 4, unit: 'HOURS')
              }
              steps {
-                 sh "sudo ./mvnw -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools'"
+                 sh "./mvnw -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools'"
              }
              post {
                  always {
