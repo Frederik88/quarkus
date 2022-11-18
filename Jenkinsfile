@@ -29,7 +29,7 @@
                  timeout(time: 4, unit: 'HOURS')
              }
              steps {
-                 sh "sh 'mvn clean verify -DskipITs=true';junit '**/target/surefire-reports/TEST-*.xml'archive 'target/*.jar'"
+                 sh 'mvn clean verify -DskipITs=true';junit '**/target/surefire-reports/TEST-*.xml'archive 'target/*.jar'
              }
          }
          stage('Test Native') {
