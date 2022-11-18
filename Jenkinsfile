@@ -19,7 +19,7 @@
          }
          stage('Build') {
              steps {
-                 sh './mvnw -V clean install -DskipTests -DskipITs -DskipDocs'
+                 sh 'mvn -V clean install -DskipTests -DskipITs -DskipDocs'
              }
          }
          stage('Test JVM') {
@@ -27,7 +27,7 @@
                  timeout(time: 4, unit: 'HOURS')
              }
              steps {
-                 sh "./mvnw -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools'"
+                 sh "mvn -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools'"
              }
              post {
                  always {
@@ -40,7 +40,7 @@
                  timeout(time: 7, unit: 'HOURS')
              }
              steps {
-                 sh "GRAALVM_HOME=$JAVA_HOME ./mvnw -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools' -Dnative"
+                 sh " mvn -fn clean verify -DskipDocs -pl '!integration-tests/gradle,!integration-tests/devtools' -Dnative"
              }
              post {
                  always {
