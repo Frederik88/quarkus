@@ -19,6 +19,8 @@
          }
          stage('Build') {
              steps {
+                 sh "echo $JAVA_HOME"
+                 sh "java --version"
                  sh 'mvn -V clean install -DskipTests -DskipITs -DskipDocs'
              }
          }
